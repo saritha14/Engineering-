@@ -1,0 +1,33 @@
+<mat-card>  
+  <div class="alert alert-info">  
+      <h3 style="text-align: center;">Engineering AI</h3>  
+  </div> 
+  <mat-form-field>
+    <input type="text" matInput (keyup)="searchFilter($event.target.value)" (focus)="setupFilter('title')" placeholder="Search by Title">
+  </mat-form-field>
+
+<div class="example-container mat-elevation-z6">  
+      <mat-table [dataSource]="dataSource">   
+          <ng-container matColumnDef="created_at">  
+              <th><mat-header-cell *matHeaderCellDef style="color: black;font-size: 15px;">CREATED_AT </mat-header-cell>  </th>
+              <mat-cell *matCellDef="let data"> {{data.created_at}} </mat-cell>  
+          </ng-container>    
+          <ng-container matColumnDef="title">  
+              <mat-header-cell *matHeaderCellDef  style="color: black;font-size: 15px;">Title</mat-header-cell>  
+              <mat-cell *matCellDef="let data"> {{data.title}} </mat-cell>  
+          </ng-container>  
+          <ng-container matColumnDef="url">  
+              <mat-header-cell *matHeaderCellDef  style="color: black;font-size: 15px;"> URL </mat-header-cell>  
+              <mat-cell *matCellDef="let data"> {{data.url}} </mat-cell>  
+          </ng-container> 
+          <ng-container matColumnDef="author">  
+            <mat-header-cell *matHeaderCellDef  style="color: black;font-size: 15px;"> AUTHOR </mat-header-cell>  
+            <mat-cell *matCellDef="let data"> {{data.author}} </mat-cell>  
+        </ng-container>   
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>  
+        <mat-row (click)="modal(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>  
+      </mat-table>  
+     </div>  
+     </mat-card>
+
+  
